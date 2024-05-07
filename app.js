@@ -1,6 +1,6 @@
 const mygameBoardObject = ({}) => {
     let gameBoard = [];
-    function gameBoard() {
+    const gameBoardStats = function() {
         if (gameBoard == false) {
 
         } else {
@@ -8,10 +8,10 @@ const mygameBoardObject = ({}) => {
         }
     }
     
-    function createPlayer(playerObject) {
+    const createPlayer = function({playerObject}) {
         // Array.prototype.push(playerObject); //
-        gameBoard.push(playerObject);
-        return {playerObject};                
+        gameBoard.push({playerObject});
+        return gameBoard;                
     }
 }
 
