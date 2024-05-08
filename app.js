@@ -1,19 +1,19 @@
-const mygameBoardObject = ({}) => {
+const mygameBoardObject = (() => {
     let gameBoard = [];
-    const gameBoardStats = function() {
-        if (gameBoard == false) {
-
-        } else {
-            return gameBoard
-        }
+    function gameBoardStats() {
+        return gameBoard;
     }
     
-    const createPlayer = function({playerObject}) {
+    const createPlayer = function({playerName, id}) {
         // Array.prototype.push(playerObject); //
-        gameBoard.push({playerObject});
+        playerName,
+        id,
+        gameBoard.push({playerName, id});
         return gameBoard;                
     }
-}
+    return {gameBoardStats, createPlayer}
+})()
+
 
 
 // // FACTORY PATTERN
