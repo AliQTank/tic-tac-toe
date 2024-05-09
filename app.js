@@ -1,5 +1,8 @@
 const mygameBoardObject = (() => {
     let gameBoard = [];
+
+    const initialize = () => "new game"
+
     function gameBoardStats() {
         return gameBoard;
     }
@@ -11,7 +14,7 @@ const mygameBoardObject = (() => {
         gameBoard.push({playerName, id});
         return gameBoard;                
     }
-    return {gameBoardStats, createPlayer}
+    return {initialize, gameBoardStats, createPlayer}
 })()
 
 
