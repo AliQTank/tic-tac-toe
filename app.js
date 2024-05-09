@@ -17,6 +17,9 @@ const mygameBoardObject = (() => {
     return {initialize, gameBoardStats, createPlayer}
 })()
 
+console.log(mygameBoardObject.createPlayer({playerName: "player 1", id: "aaa"}));
+console.log(mygameBoardObject.gameBoardStats());
+
 
 
 // // FACTORY PATTERN
