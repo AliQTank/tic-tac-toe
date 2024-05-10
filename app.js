@@ -1,7 +1,15 @@
 const mygameBoardObject = (() => {
     let gameBoard = [];
 
-    const initialize = () => "new game"
+    const gameStatus = () => {
+        const gameStart = () => {
+
+        }
+        const gameEnd = () => {
+
+        }
+        return {gameStatus, gameEnd}
+    }
 
     function gameBoardStats() {
         return gameBoard;
@@ -14,11 +22,22 @@ const mygameBoardObject = (() => {
         gameBoard.push({playerName, id});
         return gameBoard;                
     }
-    return {initialize, gameBoardStats, createPlayer}
+    return {gameStatus, gameBoardStats, createPlayer}
 })()
 
-console.log(mygameBoardObject.createPlayer({playerName: "player 1", id: "aaa"}));
-console.log(mygameBoardObject.gameBoardStats());
+const player1 = {
+    playerName: "John Doe",
+    id: "JD1",
+    turn: false
+}
+const player2 = {
+    playerName: "Jane Danna",
+    id: "Jane",
+    turn: false
+}
+console.log(mygameBoardObject.createPlayer(player1));
+console.log(mygameBoardObject.createPlayer(player2));
+// console.log(mygameBoardObject.gameBoardStats());
 
 
 
