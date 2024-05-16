@@ -8,7 +8,7 @@ const mygameBoardObject = (() => {
         const gameEnd = () => {
 
         }
-        return {gameStatus, gameEnd}
+        return {gameStart, gameEnd}
     }
 
     function gameBoardStats() {
