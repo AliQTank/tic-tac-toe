@@ -1,25 +1,26 @@
-const mygameBoardObject = (() => {
+const gameBoardObject = (() => {
     let gameBoard = [];
+    let count = 0;
 
     const gameStatus = () => {
-        const gameStart = () => {
-
+        const gameStarted = () => {
         }
-        const gameEnd = () => {
-
+        const gameEnded = () => {
+            count++;
         }
-        return {gameStart, gameEnd}
+        return {gameStarted, gameEnded}
     }
 
     function gameBoardStats() {
         return gameBoard;
     }
     
-    const createPlayer = function({playerName, id}) {
+    const createPlayer = function({playerName, id, score}) {
         // Array.prototype.push(playerObject); //
         playerName,
         id,
-        gameBoard.push({playerName, id});
+        score,
+        gameBoard.push({playerName, id, score});
         return gameBoard;                
     }
     return {gameStatus, gameBoardStats, createPlayer}
@@ -30,14 +31,16 @@ const player1 = {
     id: "JD1",
     turn: false
 }
+Object.defineProperty(player1, "score", {value: 0});
 const player2 = {
     playerName: "Jane Danna",
     id: "Jane",
     turn: false
 }
-console.log(mygameBoardObject.createPlayer(player1));
-console.log(mygameBoardObject.createPlayer(player2));
-// console.log(mygameBoardObject.gameBoardStats());
+Object.defineProperty(player2, "score", {value: 0})
+console.log(gameBoardObject.createPlayer(player1));
+console.log(gameBoardObject.createPlayer(player2));
+// console.log(gameBoardObject.gameBoardStats());
 
 
 
