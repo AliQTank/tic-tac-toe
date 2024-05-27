@@ -2,28 +2,31 @@ const gameBoardObject = (() => {
     let gameBoard = [];
     let count = 0;
 
-    const gameStatus = () => {
+    const gameStatus = (() => {
         const gameStarted = () => {
         }
         const gameEnded = () => {
             count++;
         }
-        return {gameStarted, gameEnded}
-    }
+        const restartGame = () => count = 0;
+        return {gameStarted, gameEnded, restartGame}
+    })()
 
-    function gameBoardStats() {
+    const gameBoardStats = () => {
         return gameBoard;
     }
     
-    const createPlayer = function({playerName, id, score}) {
-        // Array.prototype.push(playerObject); //
+    const createPlayer = function({playerName, id, score = 0}) {        
         playerName,
         id,
         score,
         gameBoard.push({playerName, id, score});
-        return gameBoard;                
+        // return gameBoard;                
     }
-    return {gameStatus, gameBoardStats, createPlayer}
+
+    const gamesCounter = () => count;
+
+    return {gameStatus, gameBoardStats, createPlayer, gamesCounter}
 })()
 
 const player1 = {
@@ -31,16 +34,16 @@ const player1 = {
     id: "JD1",
     turn: false
 }
-Object.defineProperty(player1, "score", {value: 0});
+
 const player2 = {
     playerName: "Jane Danna",
     id: "Jane",
     turn: false
 }
-Object.defineProperty(player2, "score", {value: 0})
+
 console.log(gameBoardObject.createPlayer(player1));
 console.log(gameBoardObject.createPlayer(player2));
-// console.log(gameBoardObject.gameBoardStats());
+console.log(gameBoardObject.gameBoardStats());
 
 
 
@@ -81,4 +84,3 @@ console.log(gameBoardObject.createPlayer(player2));
 //   calculator.add(3,5); // 8
 //   calculator.sub(6,2); // 4
 //   calculator.mul(14,5534); // 77476
-  
