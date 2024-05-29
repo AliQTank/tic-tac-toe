@@ -1,12 +1,32 @@
 const gameBoardObject = (() => {
     let gameBoard = [];
     let count = 0;
+    let gameInProcess = false
 
     const gameStatus = (() => {
         const gameStarted = () => {
+            gameInProcess = true;
         }
         const gameEnded = () => {
+            if (!!gameInProcess) {
+                gameInProcess = false;
             count++;
+            //CASE PLAYER 1, PLAYER TWO, TIE, ADD TO SCORE
+            switch (winner){
+                case ("John Doe"):
+                    gameBoard[0].score++;
+                    break;
+                case ("Jane Danna"):
+                    gameBoard[1].score++;
+                    break;
+                case ("tie"):
+                    "its a tie";
+                    break
+                }
+
+            }
+            
+            //CLICK OR TAP TO CLEAN BOARD FOR NEW GAME
         }
         const restartGame = () => count = 0;
         return {gameStarted, gameEnded, restartGame}
