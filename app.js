@@ -10,7 +10,7 @@ const gameBoardObject = (() => {
             let virtualGame = Math.random();
             if (virtualGame < .33) {
                 winner = "John Doe";
-            } else if (virtualGame >= .33 && virtualGame <= .66) {
+            } else if (virtualGame > .66) {
                 winner = "Jane Danna"
             } else {
                 winner = "tie";
