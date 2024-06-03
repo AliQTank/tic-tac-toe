@@ -1,5 +1,6 @@
 const gameBoardObject = (() => {
-    let gameBoard = [];
+    let gameBoard= Array(9);
+    let gameScoreBoard = [];
     let count = 0;
     let gameInProcess = false
     let winner;
@@ -24,35 +25,30 @@ const gameBoardObject = (() => {
                 //CASE PLAYER 1, PLAYER TWO, TIE, ADD TO SCORE
                 switch (winner){
                     case ("John Doe"):
-                        gameBoard[0].score++;
-                        return `${gameBoard[0].playerName}`
+                        gameScoreBoard[0].score++;
+                        return `${gameScoreBoard[0].playerName}`
                         break;
                     case ("Jane Danna"):
-                        gameBoard[1].score++;
-                        return `${gameBoard[1].playerName}`
+                        gameScoreBoard[1].score++;
+                        return `${gameScoreBoard[1].playerName}`
                         break;
                     case ("tie"):
                         return "its a tie";
                         break
                     }
-
             }
-
-            
-            //CLICK OR TAP TO CLEAN BOARD FOR NEW GAME
         }
 
     const simCompleteGame = ()=> {
         gameStatus.gameStarted();
         gameStatus.gameEnded();
         return `${winner}`
-        // gameBoardObject.gameBoardStats();
-        // gameBoardObject.gamesCounter;        
+             
     }
         const restartGame = () => {
             count = 0;
-            gameBoard[0].score = 0;
-            gameBoard[1].score = 0;
+            gameScoreBoard[0].score = 0;
+            gameScoreBoard[1].score = 0;
             gameStarted()
 
         }
@@ -60,20 +56,21 @@ const gameBoardObject = (() => {
     })()
 
     const gameBoardStats = () => {
-        return `${gameBoard[0].playerName} : ${gameBoard[0].score}  ${gameBoard[1].playerName} : ${gameBoard[1].score} `;
+        return `${gameScoreBoard[0].playerName} : ${gameScoreBoard[0].score}  ${gameScoreBoard[1].playerName} : ${gameScoreBoard[1].score} `;
     }
     
     const createPlayer = function({playerName, id, score = 0}) {        
         playerName,
         id,
         score,
-        gameBoard.push({playerName, id, score});
-        // return gameBoard;                
+        gameScoreBoard.push({playerName, id, score});            
     }
 
     const gamesCounter = () => count;
 
-    return {gameStatus, gameBoardStats, createPlayer, gamesCounter}
+    const returnGameBoard = () => gameBoard;
+
+    return {gameStatus, gameBoardStats, createPlayer, gamesCounter, returnGameBoard}
 })()
 
 const player1 = {
@@ -90,7 +87,7 @@ const player2 = {
 
 console.log(gameBoardObject.createPlayer(player1));
 console.log(gameBoardObject.createPlayer(player2));
-console.log(gameBoardObject.gameBoardStats());
+// console.log(gameBoardObject.gameBoardStats());
 
 
 
