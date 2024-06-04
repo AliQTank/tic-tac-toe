@@ -9,14 +9,10 @@ const gameBoardObject = (() => {
         const gameStarted = () => {
             gameInProcess = true;
             let virtualGame = Math.random();
-            if (virtualGame < .33) {
-                winner = "John Doe";
-            } else if (virtualGame > .66) {
-                winner = "Jane Danna"
-            } else {
-                winner = "tie";
-
-            }
+            virtualGame < .33 ? winner = "John Doe": virtualGame > .66 ? winner = "Jane Danna" : winner = "tie"
+            
+            // let whoStarts = Math.random();
+            // whoStarts > .05 ? player1.playerName : player2.playerName
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
