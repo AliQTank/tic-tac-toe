@@ -13,6 +13,7 @@ const gameBoardObject = (() => {
             virtualGame < .33 ? winner = "John Doe": virtualGame > .66 ? winner = "Jane Danna" : winner = "tie"
             
             // let whoStarts = Math.random(); // FIRST HAVE TO DEFINE WHO WILL START
+
             // const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
             //     if (currentPlayer === player1.playerName) {
             //         currentPlayer === player2.playerName;
@@ -41,12 +42,12 @@ const gameBoardObject = (() => {
             }
         }
 
-    const simCompleteGame = ()=> {
-        gameStatus.gameStarted();
-        gameStatus.gameEnded();
-        return `${winner}`
-             
-    }
+        const simCompleteGame = ()=> {
+            gameStatus.gameStarted();
+            gameStatus.gameEnded();
+            return `${winner}`
+                
+        }
         const restartGame = () => {
             count = 0;
             gameScoreBoard[0].score = 0;
