@@ -1,25 +1,29 @@
 const gameBoardObject = (() => {
-    let gameBoard= Array(9);
+    let gameBoard = Array(9);
     let gameScoreBoard = [];
     let count = 0;
     let gameInProcess = false
-    let currentPlayer; // TO TOGGLE PLAYERS TURN
-    let winner;
-
+    // let currentPlayer; // TO TOGGLE PLAYERS TURN
+    
     const gameStatus = (() => {
+        let winner;
         const gameStarted = () => {
             gameInProcess = true;
+            let currentPlayer;
             let virtualGame = Math.random();
-            virtualGame < .33 ? winner = "John Doe": virtualGame > .66 ? winner = "Jane Danna" : winner = "tie"
+            virtualGame < .33 ? winner = player1.playerName : virtualGame > .66 ? winner = player2.playerName : winner = "tie"
+            virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
+            const chooseBoardLocation = () => {
+                
+            }
             
-            // let whoStarts = Math.random(); // FIRST HAVE TO DEFINE WHO WILL START
+
 
             // const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
             //     if (currentPlayer === player1.playerName) {
             //         currentPlayer === player2.playerName;
             //     } else {currentPlayer === player1.playerName}
-            // }
-            whoStarts > .05 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName
+            // }            
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
@@ -27,16 +31,16 @@ const gameBoardObject = (() => {
                 count++;
                 //CASE PLAYER 1, PLAYER TWO, TIE, ADD TO SCORE
                 switch (winner){
-                    case ("John Doe"):
+                    case (player1.playerName):
                         gameScoreBoard[0].score++;
                         return `${gameScoreBoard[0].playerName}`
                         break;
-                    case ("Jane Danna"):
+                    case (player2.playerName):
                         gameScoreBoard[1].score++;
                         return `${gameScoreBoard[1].playerName}`
                         break;
                     case ("tie"):
-                        return "its a tie";
+                        return winner;
                         break
                     }
             }

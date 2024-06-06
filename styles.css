@@ -1,6 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    background-color: aquamarine;
 }
 
 header {
@@ -18,10 +19,16 @@ header {
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
+    background-color:blueviolet;
 }
 
-#grid-item {
+.grid-item {
     background-color: #f0f0f0;
     padding: 20px;
     text-align: center;
+    background-color: darkred;
+}
+
+.selected {
+    background-color: green;
 }
