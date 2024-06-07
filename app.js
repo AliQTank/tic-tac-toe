@@ -3,7 +3,7 @@ const gameBoardObject = (() => {
     let gameScoreBoard = [];
     let count = 0;
     let gameInProcess = false
-    // let currentPlayer; // TO TOGGLE PLAYERS TURN
+    let currentPlayer; // TO TOGGLE PLAYERS TURN
     
     const gameStatus = (() => {
         let winner;
@@ -11,18 +11,22 @@ const gameBoardObject = (() => {
             gameInProcess = true;
             let virtualGame = Math.random();
             // virtualGame < .33 ? winner = player1.playerName : virtualGame > .66 ? winner = player2.playerName : winner = "tie"
-            let currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
-            const chooseBoardLocation = () => {
-                gameBoard[getElementIndex] = currentPlayer;
-                togglePlayer();               
-            };
-
+            currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
+            return currentPlayer;                    
+        }
+        const gameInProgress = () => {
             const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
                 if (currentPlayer === player1.playerName) {
                     currentPlayer === player2.playerName;
                 } else {currentPlayer === player1.playerName}
             }  
-            return {chooseBoardLocation}          
+            const chooseBoardLocation = () => {
+                gameBoard[getElementIndex] = currentPlayer;
+                togglePlayer();               
+            };
+            if(!!currentPlayer) {
+                chooseBoardLocation();
+            }
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
@@ -58,7 +62,7 @@ const gameBoardObject = (() => {
             gameStarted()
 
         }
-        return {gameStarted, gameEnded, restartGame, simCompleteGame}
+        return {gameStarted, gameInProgress, gameEnded, restartGame, simCompleteGame}
     })()
 
     const gameBoardStats = () => {
