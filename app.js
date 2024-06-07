@@ -9,21 +9,20 @@ const gameBoardObject = (() => {
         let winner;
         const gameStarted = () => {
             gameInProcess = true;
-            let currentPlayer;
             let virtualGame = Math.random();
-            virtualGame < .33 ? winner = player1.playerName : virtualGame > .66 ? winner = player2.playerName : winner = "tie"
-            virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
+            // virtualGame < .33 ? winner = player1.playerName : virtualGame > .66 ? winner = player2.playerName : winner = "tie"
+            let currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
             const chooseBoardLocation = () => {
-                
-            }
-            
+                gameBoard[getElementIndex] = currentPlayer;
+                togglePlayer();               
+            };
 
-
-            // const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
-            //     if (currentPlayer === player1.playerName) {
-            //         currentPlayer === player2.playerName;
-            //     } else {currentPlayer === player1.playerName}
-            // }            
+            const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
+                if (currentPlayer === player1.playerName) {
+                    currentPlayer === player2.playerName;
+                } else {currentPlayer === player1.playerName}
+            }  
+            return {chooseBoardLocation}          
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
