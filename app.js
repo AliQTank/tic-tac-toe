@@ -17,10 +17,8 @@ const gameBoardObject = (() => {
         }
         const gameInProgress = () => {  
             const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
-                if (currentPlayer === player1.playerName) {
-                    currentPlayer = player2.playerName;
-                } else {currentPlayer = player1.playerName}
-            }                                  
+                currentPlayer === player1.playerName ? currentPlayer = player2.playerName : currentPlayer = player1.playerName            
+            }
             const chooseBoardLocation = (indexOfGameboard) => {
                 if (!!gameInProcess && !gameBoard[indexOfGameboard]) {
                     gameBoard[indexOfGameboard] = currentPlayer;
