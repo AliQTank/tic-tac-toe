@@ -3,7 +3,7 @@ const gameBoardObject = (() => {
     let gameScoreBoard = [];
     let count = 0;
     let gameInProcess = false
-    let currentPlayer; // TO TOGGLE PLAYERS TURN
+    let currentPlayer; // VARIABLE TO TOGGLE PLAYERS TURN
     
     const gameStatus = (() => {
         let winner;
@@ -12,21 +12,24 @@ const gameBoardObject = (() => {
             let virtualGame = Math.random();
             // virtualGame < .33 ? winner = player1.playerName : virtualGame > .66 ? winner = player2.playerName : winner = "tie"
             currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
-            return currentPlayer;                    
+            // winner = currentPlayer;                                
         }
         const gameInProgress = () => {
+                        
             const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
                 if (currentPlayer === player1.playerName) {
                     currentPlayer === player2.playerName;
                 } else {currentPlayer === player1.playerName}
-            }  
-            const chooseBoardLocation = () => {
-                gameBoard[getElementIndex] = currentPlayer;
-                togglePlayer();               
-            };
-            if(!!currentPlayer) {
-                chooseBoardLocation();
             }
+            const chooseBoardLocation = (indexOfGameboard) => {
+                gameBoard[indexOfGameboard] = currentPlayer;
+                togglePlayer();  
+                return gameBoard             
+            };
+            if (!!gameInProcess) {
+                
+            }
+            return {togglePlayer, chooseBoardLocation}
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
