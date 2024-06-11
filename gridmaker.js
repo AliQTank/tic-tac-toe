@@ -7,7 +7,7 @@ const boxSelected = function(e) {
     const item = e.target;
     if (item.classList[0] == "grid-item") {
         item.classList = "selected";
-        console.log(e.target);
+        // console.log(e.target);
     } 
 }
 
@@ -31,7 +31,7 @@ for (let i = 1; i<= 9; i++) {
     gridItem.classList.add("grid-item");
     gridContainer.appendChild(gridItem);
     gridItem.addEventListener("click", boxSelected);
-    gridItem.addEventListener("mouseover", getElementIndex);
+    gridItem.addEventListener("click", getElementIndex);
 }
 
 // arrayFromTheGrids.forEach(element => {
