@@ -25,7 +25,10 @@ const gameBoardObject = (() => {
                     togglePlayer();  
                     return gameBoard                
                 }                             
-            };            
+            };
+            const doWeGotAWinner = () => {
+                if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {}
+            }
             return {chooseBoardLocation}
         }
         const gameEnded = () => {
