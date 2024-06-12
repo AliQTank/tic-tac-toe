@@ -24,10 +24,17 @@ const gameBoardObject = (() => {
                     gameBoard[indexOfGameboard] = currentPlayer;
                     togglePlayer();  
                     return gameBoard                
-                }                             
+                }   return "NOT INITIATED";
             };
-            const doWeGotAWinner = () => {
-                if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) {}
+            const doWeGotAWinner = (indexOfGameboard) => {
+
+                if (gameBoard[indexOfGameboard] === gameBoard[indexOfGameboard + 1] && 
+                    gameBoard[indexOfGameboard] === gameBoard[indexOfGameboard + 2]) { 
+                        if (gameBoard[indexOfGameboard] === 0 || 
+                            gameBoard[indexOfGameboard] === 3 || gameBoard[indexOfGameboard] === 6) {
+                                winner = gameBoard[indexOfGameboard];
+                            }
+                    }
             }
             return {chooseBoardLocation}
         }
