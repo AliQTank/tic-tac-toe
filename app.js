@@ -24,19 +24,29 @@ const gameBoardObject = (() => {
                     gameBoard[indexOfGameboard] = currentPlayer;
                     togglePlayer();  
                     return gameBoard                
-                }   return "NOT INITIATED";
+                }   
             };
-            const doWeGotAWinner = (indexOfGameboard) => {
-
-                if (gameBoard[indexOfGameboard] === gameBoard[indexOfGameboard + 1] && 
-                    gameBoard[indexOfGameboard] === gameBoard[indexOfGameboard + 2]) { 
-                        if (gameBoard[indexOfGameboard] === 0 || 
-                            gameBoard[indexOfGameboard] === 3 || gameBoard[indexOfGameboard] === 6) {
-                                winner = gameBoard[indexOfGameboard];
-                            }
-                    }
+            const doWeGotAWinner = () => {
+                const filteredGameBoard = gameBoard.filter(e)
+                return filteredGameBoard 
+                // if(gameBoard[indexOfGameboard] === 0 ||
+                //     gameBoard[indexOfGameboard] === 3 ||
+                //     gameBoard[indexOfGameboard] === 6) {
+                //         if (gameBoard[indexOfGameboard] === gameBoard[indexOfGameboard + 1] && 
+                //             gameBoard[indexOfGameboard] === gameBoard[indexOfGameboard + 2]) { 
+                //                 if (gameBoard[indexOfGameboard] === 0 || 
+                //                     gameBoard[indexOfGameboard] === 3 || 
+                //                     gameBoard[indexOfGameboard] === 6) {
+                //                         winner = gameBoard[indexOfGameboard];
+                //                     }
+                //             }
+                //     }
             }
-            return {chooseBoardLocation}
+
+            const arraySplitter = () => {
+                return gameBoard.filter(e => e != "");
+            }
+            return {chooseBoardLocation, arraySplitter}
         }
         const gameEnded = () => {
             if (!!gameInProcess) {

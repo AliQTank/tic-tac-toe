@@ -17,6 +17,12 @@ const getElementIndex = function(e) {
     console.log(index);
 }
 
+const returnElementIndex = (e) => {
+    const item = e.target;
+    var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(e.target);
+    return index;
+}
+
 const newname = function(e) {
     const item = e.target
     for (let i = 0; i < gridBox.length; i++) {

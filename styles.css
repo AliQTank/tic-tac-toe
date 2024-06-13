@@ -32,3 +32,11 @@ header {
 .selected {
     background-color: green;
 }
+
+#player-1 {
+    background-color: cadetblue;
+}
+
+#player-2 {
+    background-color: coral;
+}
