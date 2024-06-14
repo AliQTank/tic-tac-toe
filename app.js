@@ -27,8 +27,19 @@ const gameBoardObject = (() => {
                 }   
             };
             const doWeGotAWinner = () => {
-                const filteredGameBoard = gameBoard.filter(e)
-                return filteredGameBoard 
+                let copyOFGameboard = [...gameBoard];
+                let firstRow =  copyOFGameboard.slice(0, 3);
+                let secondRow  = copyOFGameboard.slice(3, 6);
+                let thirdRow = copyOFGameboard.slice(6);
+                let firstColumn = [].concat(firstRow[0]).concat(secondRow[0]).concat(thirdRow[0])
+                let secondColumn = [].concat(firstRow[1]).concat(secondRow[1]).concat(thirdRow[1]);
+                let thirdColumn = [].concat(firstRow[2]).concat(secondRow[2]).concat(thirdRow[2]);
+                let cross1 = [].concat(firstRow[0]).concat(secondRow[1]).concat(thirdRow[2]);
+                let cross2 = [].concat(firstRow[2]).concat(secondRow[1]).concat(thirdRow[0]);
+                console.log({firstRow, secondRow, thirdRow, firstColumn, secondColumn, thirdColumn, cross1, cross2});
+
+                // const filteredGameBoard = gameBoard.filter(e)
+                // return filteredGameBoard 
                 // if(gameBoard[indexOfGameboard] === 0 ||
                 //     gameBoard[indexOfGameboard] === 3 ||
                 //     gameBoard[indexOfGameboard] === 6) {
@@ -46,7 +57,7 @@ const gameBoardObject = (() => {
             const arraySplitter = () => {
                 return gameBoard.filter(e => e != "");
             }
-            return {chooseBoardLocation, arraySplitter}
+            return {chooseBoardLocation, doWeGotAWinner, arraySplitter}
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
