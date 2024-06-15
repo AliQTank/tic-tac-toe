@@ -27,16 +27,35 @@ const gameBoardObject = (() => {
                 }   
             };
             const doWeGotAWinner = () => {
-                let copyOFGameboard = [...gameBoard];
-                let firstRow =  copyOFGameboard.slice(0, 3);
-                let secondRow  = copyOFGameboard.slice(3, 6);
-                let thirdRow = copyOFGameboard.slice(6);
+                const checkPlayer1 = (player) => {
+                    if (player === firstPlayer) {return true}
+                }
+                const checkPlayer2 = (player) => {
+                    if (player === secondPlayer) {return true}
+                }
+                let firstPlayer = player1.playerName;
+                let secondPlayer = player2.playerName;
+                let firstRow =  gameBoard.slice(0, 3);
+                let secondRow  = gameBoard.slice(3, 6);
+                let thirdRow = gameBoard.slice(6);
                 let firstColumn = [].concat(firstRow[0]).concat(secondRow[0]).concat(thirdRow[0])
                 let secondColumn = [].concat(firstRow[1]).concat(secondRow[1]).concat(thirdRow[1]);
                 let thirdColumn = [].concat(firstRow[2]).concat(secondRow[2]).concat(thirdRow[2]);
                 let cross1 = [].concat(firstRow[0]).concat(secondRow[1]).concat(thirdRow[2]);
-                let cross2 = [].concat(firstRow[2]).concat(secondRow[1]).concat(thirdRow[0]);
-                console.log({firstRow, secondRow, thirdRow, firstColumn, secondColumn, thirdColumn, cross1, cross2});
+                let cross2 = [].concat(thirdRow[0]).concat(secondRow[1]).concat(firstRow[2]);
+                if (firstRow.every(checkPlayer1) || secondRow.every(checkPlayer1) || thirdRow.every(checkPlayer1) 
+                    || firstColumn.every(checkPlayer1) || secondColumn.every(checkPlayer1) || thirdColumn.every(checkPlayer1) 
+                    || cross1.every(checkPlayer1) || cross2.every(checkPlayer1)) {
+                    winner = firstPlayer;
+                    return winner
+                    gameEnded()}
+                else if (firstRow.every(checkPlayer2) || secondRow.every(checkPlayer2) || thirdRow.every(checkPlayer2) 
+                    || firstColumn.every(checkPlayer2) || secondColumn.every(checkPlayer2) || thirdColumn.every(checkPlayer2) 
+                    || cross1.every(checkPlayer2) || cross2.every(checkPlayer2)) {
+                    winner = secondPlayer;
+                    return winner
+                    }
+                // console.log({firstRow, secondRow, thirdRow, firstColumn, secondColumn, thirdColumn, cross1, cross2});
 
                 // const filteredGameBoard = gameBoard.filter(e)
                 // return filteredGameBoard 
@@ -82,8 +101,14 @@ const gameBoardObject = (() => {
 
         const simCompleteGame = ()=> {
             gameStatus.gameStarted();
-            gameStatus.gameEnded();
-            return `${winner}`
+            gameStatus.gameInProgress().chooseBoardLocation(0);
+            gameStatus.gameInProgress().chooseBoardLocation(8);
+            gameStatus.gameInProgress().chooseBoardLocation(1);
+            gameStatus.gameInProgress().chooseBoardLocation(7);
+            gameStatus.gameInProgress().chooseBoardLocation(5);
+            gameStatus.gameInProgress().chooseBoardLocation(6);  
+            doWeGotAWinner()         
+            // return `${winner}`
                 
         }
         const restartGame = () => {
