@@ -110,9 +110,7 @@ const gameBoardObject = (() => {
     }
     
     const createPlayer = function({playerName, id, score = 0}) {        
-        playerName,
-        id,
-        score,
+        playerName, id, score,
         gameScoreBoard.push({playerName, id, score});            
     }
 
