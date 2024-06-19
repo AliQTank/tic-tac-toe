@@ -11,7 +11,6 @@ const gameBoardObject = (() => {
         const gameStarted = () => {
             gameInProcess = true;
             let virtualGame = Math.random();
-            // virtualGame < .33 ? winner = player1.playerName : virtualGame > .66 ? winner = player2.playerName : winner = "tie"
             currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
             return currentPlayer;
             // winner = currentPlayer;                                
@@ -54,10 +53,8 @@ const gameBoardObject = (() => {
                                     return winner = player2.playerName;
                     } else if (gameBoard.every(noMoreCellsAvailable)) {return winner = "tie"}                   
                 }) ()      
-                return {checkAndCheckers}            
-                               
+                return {checkAndCheckers}
             }
-
             const arraySplitter = () => {
                 return gameBoard.filter(e => e != "");
             }
