@@ -28,8 +28,9 @@ const gameBoardObject = (() => {
                 }   
             };
             const doWeGotAWinner = () => {
-                const checkPlayer1 = (player) => player === firstPlayer
-                const checkPlayer2 = (player) => player === secondPlayer
+                const checkPlayer1 = player => player === firstPlayer;
+                const checkPlayer2 = player => player === secondPlayer;
+                const noMoreCellsAvailable = player => player !== undefined;
                 let firstPlayer = player1.playerName;
                 let secondPlayer = player2.playerName;
                 let firstRow =  gameBoard.slice(0, 3);
@@ -51,7 +52,7 @@ const gameBoardObject = (() => {
                                 secondColumn.every(checkPlayer2) || thirdColumn.every(checkPlayer2) ||
                                 cross1.every(checkPlayer2) || cross2.every(checkPlayer2)) {
                                     return winner = player2.playerName;
-                                }                   
+                    } else if (gameBoard.every(noMoreCellsAvailable)) {return winner = "tie"}                   
                 }) ()      
                 return {checkAndCheckers}            
                                
