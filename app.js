@@ -7,7 +7,7 @@ const gameBoardObject = (() => {
     
     const gameStatus = (() => {
         
-        let winner = undefined;
+        let winner = undefined, tie ="its a tie";
         const gameStarted = () => {
             if (!!gameInProcess) {
             } else {
@@ -46,14 +46,20 @@ const gameBoardObject = (() => {
                         thirdRow.every(checkPlayer1) || firstColumn.every(checkPlayer1) ||
                         secondColumn.every(checkPlayer1) || thirdColumn.every(checkPlayer1) ||
                         cross1.every(checkPlayer1) || cross2.every(checkPlayer1)) {
-                        return winner = player1.playerName;
+                            winner = player1.playerName;
+                            console.log(winner);
+                            return winner;
                     } else if (firstRow.every(checkPlayer2) || secondRow.every(checkPlayer2) ||
                                 thirdRow.every(checkPlayer2) || firstColumn.every(checkPlayer2) ||
                                 secondColumn.every(checkPlayer2) || thirdColumn.every(checkPlayer2) ||
                                 cross1.every(checkPlayer2) || cross2.every(checkPlayer2)) {
-                                return winner = player2.playerName;
+                                    winner = player2.playerName;
+                                    console.log(winner);
+                                    return winner;
                     } else if (gameBoard.every(noMoreCellsAvailable)) {
-                        return winner = "tie"} else {}                  
+                        winner = tie;
+                        console.log(winner);
+                        return winner}                  
                 }) ()      
                 return {checkAndCheckers}
             }
@@ -63,24 +69,23 @@ const gameBoardObject = (() => {
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
+                let thisWinner = winner;
+                winner = undefined
                 gameBoard = Array(9).fill(undefined);
                 gameInProcess = false;
                 count++;
                 //CASE PLAYER 1, PLAYER TWO, TIE, ADD TO SCORE
-                switch (winner){
+                switch (thisWinner){
                     case (player1.playerName):
-                        gameScoreBoard[0].score++;
-                        winner = undefined;
+                        gameScoreBoard[0].score++;                        
                         return `${gameScoreBoard[0].playerName}`
                         break;
                     case (player2.playerName):
-                        gameScoreBoard[1].score++;
-                        winner = undefined;
+                        gameScoreBoard[1].score++;                        
                         return `${gameScoreBoard[1].playerName}`
                         break;
-                    case ("tie"):
-                        winner = undefined;
-                        return "its a tie";
+                    case (tie):                        
+                        return tie;
                         break
                     }                    
             }
@@ -88,23 +93,21 @@ const gameBoardObject = (() => {
 
         const simCompleteGame = ()=> {
             // gameStatus.gameStarted();
-            console.log(gameBoardObject.gameStatus.gameStarted());
-            console.log(gameBoardObject.gameStatus.gameInProgress().chooseBoardLocation(8));
-            console.log(gameBoardObject.gameStatus.gameInProgress().chooseBoardLocation(1));
-            console.log(gameBoardObject.gameStatus.gameInProgress().chooseBoardLocation(7));
-            console.log(gameBoardObject.gameStatus.gameInProgress().chooseBoardLocation(5));
-            console.log(gameBoardObject.gameStatus.gameInProgress().chooseBoardLocation(6));
-            console.log(gameBoardObject.gameStatus.gameInProgress().doWeGotAWinner());   
-            console.log(gameBoardObject.gameStatus.gameEnded());          
+            console.log(gameStarted());
+            console.log(gameInProgress().chooseBoardLocation(8));
+            console.log(gameInProgress().chooseBoardLocation(1));
+            console.log(gameInProgress().chooseBoardLocation(7));
+            console.log(gameInProgress().chooseBoardLocation(5));
+            console.log(gameInProgress().chooseBoardLocation(6));
+            console.log(gameInProgress().doWeGotAWinner());   
+            console.log(gameEnded());          
         }
         const restartGame = () => {
             gameInProcess = false
             count = 0;
             gameScoreBoard[0].score = 0;
             gameScoreBoard[1].score = 0;
-            gameBoard = Array(9).fill(undefined);
-            gameStarted()
-
+            gameBoard = Array(9).fill(undefined);            
         }
         return {gameStarted, gameInProgress, gameEnded, restartGame, simCompleteGame}
     })()
@@ -130,7 +133,7 @@ const player2 = {playerName: "X", id: "Jane", turn: false};
 
 console.log(gameBoardObject.createPlayer(player1));
 console.log(gameBoardObject.createPlayer(player2));
-// console.log(gameBoardObject.gameBoardStats());
+// console.log(gameBoardObject.gameStatus.gameStarted());
 
 
 
