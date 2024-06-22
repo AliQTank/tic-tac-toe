@@ -9,11 +9,15 @@ const gameBoardObject = (() => {
         
         let winner = undefined;
         const gameStarted = () => {
-            gameInProcess = true;
-            let virtualGame = Math.random();
-            currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
-            return currentPlayer;
-            // winner = currentPlayer;                                
+            if (!!gameInProcess) {
+            } else {
+                gameInProcess = true;
+                let virtualGame = Math.random();
+                currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
+                return currentPlayer;
+                // winner = currentPlayer;
+            } 
+                                            
         }
         const gameInProgress = () => {  
             const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
@@ -94,6 +98,7 @@ const gameBoardObject = (() => {
             console.log(gameBoardObject.gameStatus.gameEnded());          
         }
         const restartGame = () => {
+            gameInProcess = false
             count = 0;
             gameScoreBoard[0].score = 0;
             gameScoreBoard[1].score = 0;
