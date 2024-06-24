@@ -11,13 +11,17 @@ const gameBoardObject = (() => {
         const gameStarted = () => {
             if (!!gameInProcess) {
             } else {
-                gameInProcess = true;
-                let virtualGame = Math.random();
-                currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
-                return currentPlayer;
-                // winner = currentPlayer;
+                if (!!currentPlayer) {
+                    gameInProcess = true;
+                    return currentPlayer;
+                } else {
+                    gameInProcess = true;
+                    let virtualGame = Math.random();
+                    currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
+                    return currentPlayer;
+                    // winner = currentPlayer;
+                }
             } 
-                                            
         }
         const gameInProgress = () => {  
             const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
@@ -27,6 +31,7 @@ const gameBoardObject = (() => {
                 if (!!gameInProcess && !gameBoard[indexOfGameboard]) {
                     gameBoard[indexOfGameboard] = currentPlayer;
                     togglePlayer();
+                    doWeGotAWinner();
                     return gameBoard                
                 }   
             };
@@ -65,7 +70,7 @@ const gameBoardObject = (() => {
             }
             const arraySplitter = () => gameBoard.filter(e => e != "");
 
-            return {chooseBoardLocation, doWeGotAWinner, arraySplitter}
+            return {chooseBoardLocation, /*doWeGotAWinner,*/ arraySplitter}
         }
         const gameEnded = () => {
             if (!!gameInProcess) {
