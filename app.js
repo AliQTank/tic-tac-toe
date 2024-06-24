@@ -5,23 +5,20 @@ const gameBoardObject = (() => {
     let gameInProcess = false
     let currentPlayer; // VARIABLE TO TOGGLE PLAYERS TURN
     
-    const gameStatus = (() => {
-        
+    const gameStatus = (() => {        
         let winner = undefined, tie ="its a tie";
         const gameStarted = () => {
             if (!!gameInProcess) {
+            } else if (!!currentPlayer) {
+                gameInProcess = true;
+                return currentPlayer;
             } else {
-                if (!!currentPlayer) {
-                    gameInProcess = true;
-                    return currentPlayer;
-                } else {
-                    gameInProcess = true;
-                    let virtualGame = Math.random();
-                    currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
-                    return currentPlayer;
-                    // winner = currentPlayer;
-                }
-            } 
+                gameInProcess = true;
+                let virtualGame = Math.random();
+                currentPlayer = virtualGame > .5 ? currentPlayer = player1.playerName : currentPlayer = player2.playerName; 
+                return currentPlayer;
+                // winner = currentPlayer;
+                }            
         }
         const gameInProgress = () => {  
             const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
