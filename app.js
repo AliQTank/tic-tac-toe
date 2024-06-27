@@ -25,7 +25,7 @@ const gameBoardObject = (() => {
                 currentPlayer === player1.playerName ? currentPlayer = player2.playerName : currentPlayer = player1.playerName            
             }
             const chooseBoardLocation = (indexOfGameboard) => {
-                if (!!gameInProcess && !gameBoard[indexOfGameboard]) {
+                if (!!gameInProcess && !gameBoard[indexOfGameboard] && !winner) {
                     gameBoard[indexOfGameboard] = currentPlayer;
                     togglePlayer();
                     doWeGotAWinner();
