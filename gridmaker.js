@@ -42,21 +42,21 @@ const controlsObject = (() => {
 })
 const getElementIndex = function(e) {
     const item = e.target;
-    var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(e.target);
+    var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(item);
     console.log(index);
 }
 
 const returnElementIndex = (e) => {
     const item = e.target;
-    var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(e.target);
+    var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(item);
     return index;
 }
 
-const newname = function(e) {
+const newname = function(e) { //NO FUNCIONA
     const item = e.target
     for (let i = 0; i < gridBox.length; i++) {
         if (gridBox[i].classList === "grid-item") {
-            console.log(e.target);
+            console.log(item);
         }  
     } 
 }
@@ -66,8 +66,8 @@ const ticTacToker = (() => {
         const gridItem =  document.createElement("div");
         gridItem.classList.add("grid-item");
         gridContainer.appendChild(gridItem);
-        gridItem.addEventListener("click", boxSelected);
         gridItem.addEventListener("click", getElementIndex);
+        gridItem.addEventListener("click", boxSelected);
     }
 })()
 

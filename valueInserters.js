@@ -1,0 +1,1 @@
+const cell = document.getElementsByClassName("grid-item");
