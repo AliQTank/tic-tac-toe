@@ -130,11 +130,14 @@ const gameBoardObject = (() => {
     return {gameStatus, gameBoardStats, createPlayer, gamesCounter, returnGameBoard}
 })()
 
-const player1 = {playerName: "O", id: "JD1", turn: false};
-const player2 = {playerName: "X", id: "Jane", turn: false};
 
-console.log(gameBoardObject.createPlayer(player1));
-console.log(gameBoardObject.createPlayer(player2));
+const initialitation = (() => {
+    const player1 = {playerName: "O", id: "JD1", turn: false};
+    const player2 = {playerName: "X", id: "Jane", turn: false};
+    console.log(gameBoardObject.createPlayer(player1));
+    console.log(gameBoardObject.createPlayer(player2));    
+})();
+
 // console.log(gameBoardObject.gameStatus.gameStarted());
 
 
@@ -176,3 +179,4 @@ console.log(gameBoardObject.createPlayer(player2));
 //   calculator.add(3,5); // 8
 //   calculator.sub(6,2); // 4
 //   calculator.mul(14,5534); // 77476
+// https://cert.efset.org/cYpJxP <-----------------ENLACE DE CERTIFICADO QUBA INGLES C2
