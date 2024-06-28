@@ -80,11 +80,13 @@ const gameBoardObject = (() => {
                 switch (thisWinner){
                     case (gameScoreBoard[0].playerName):
                         gameScoreBoard[0].score++;                        
-                        return `${gameScoreBoard[0].playerName}`
+                        // return `${gameScoreBoard[0].playerName}`
+                        return `${gameScoreBoard[0].playerName}: ${gameScoreBoard[0].score} ${gameScoreBoard[1].playerName}: ${gameScoreBoard[1].score} `
                         break;
                     case (gameScoreBoard[1].playerName):
                         gameScoreBoard[1].score++;                        
-                        return `${gameScoreBoard[1].playerName}`
+                        // return `${gameScoreBoard[1].playerName}`
+                        return `${gameScoreBoard[0].playerName}: ${gameScoreBoard[0].score} ${gameScoreBoard[1].playerName}: ${gameScoreBoard[1].score}`
                         break;
                     case (tie):                        
                         return tie;
@@ -101,7 +103,7 @@ const gameBoardObject = (() => {
             console.log(gameInProgress().chooseBoardLocation(7));
             console.log(gameInProgress().chooseBoardLocation(5));
             console.log(gameInProgress().chooseBoardLocation(6));
-            console.log(gameInProgress().doWeGotAWinner());   
+            // console.log(gameInProgress().doWeGotAWinner());   
             console.log(gameEnded());          
         }
         const restartGame = () => {
