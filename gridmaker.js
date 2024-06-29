@@ -5,7 +5,7 @@ const arrayFromTheGrids = Array.from(gridBox);
 
 const boxSelected = function(e) {
       const item = e.target;
-        if (item.classList = "selected") {} else if (item.classList[0] == "grid-item") {
+        if (item.classList == "selected") {} else if (item.classList[0] == "grid-item") {
             item.classList = "selected";
             // console.log(e.target);
         } 
@@ -14,7 +14,7 @@ const boxSelected = function(e) {
 const controlsObject = (() => {
     const boxSelected = (function(e) {
         const item = e.target;
-        if (item.classList = "selected") {} else if (item.classList[0] == "grid-item") {
+        if (item.classList == "selected") {} else if (item.classList[0] == "grid-item") {
             item.classList = "selected";
             // console.log(e.target);
         } 
