@@ -129,7 +129,9 @@ const gameBoardObject = (() => {
 
     const returnGameBoard = () => gameBoard;
 
-    return {gameStatus, gameBoardStats, createPlayer, gamesCounter, returnGameBoard}
+    const retCurrentPlayer = () => currentPlayer;
+
+    return {gameStatus, gameBoardStats, createPlayer, gamesCounter, returnGameBoard, retCurrentPlayer}
 })()
 
 

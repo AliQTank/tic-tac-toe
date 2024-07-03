@@ -18,9 +18,15 @@ header {
     width: 80%;
     height: 60%;
     margin: 0 auto;
-    padding: 20px;
+    /* padding: 20px; */
     border: 1px solid #ccc;
     background-color:blueviolet;
+}
+
+#gameboard > div  {
+    align-content: center;
+    text-align: center;
+    color: aquamarine;
 }
 
 .grid-item {
@@ -31,7 +37,11 @@ header {
 }
 
 .selected {
-    background-color: rgb(89, 234, 89);
+    background-color: rgb(172, 113, 181);
+    font-weight: bolder;
+    font-size: xx-large;
+    /* align-content: center;
+    text-align: center; */
 }
 
 #player-1 {
