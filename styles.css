@@ -51,3 +51,12 @@ header {
 #player-2 {
     background-color: coral;
 }
+
+/* FORMAT FOR MIN AND MAX SIZES */
+@media (min-width: 1000px) {
+    #gameboard {   
+      width: 700px;
+    }
+
+
+  }
