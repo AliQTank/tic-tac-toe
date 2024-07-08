@@ -4,9 +4,6 @@ const printSelection = document.createElement("p");
 const addSpan = printSelection.innerHTML = "<span></span>";
 const hiCell = addSpan.innerText = "hi";
 
-const functionToPrintCell = (index) => {
-    // const item = e.target;
-    // var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(item);  
-    arrayCell[index].innerText = "X"
-
+const functionToCleanGameboard = () => {
+    
 }

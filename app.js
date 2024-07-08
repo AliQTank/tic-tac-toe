@@ -65,9 +65,9 @@ const gameBoardObject = (() => {
                 }) ()      
                 return {checkAndCheckers}
             }
-            const arraySplitter = () => gameBoard.filter(e => e != "");
+            // const arraySplitter = () => gameBoard.filter(e => e != "");
 
-            return {chooseBoardLocation, /*doWeGotAWinner,*/ arraySplitter}
+            return {chooseBoardLocation, /*doWeGotAWinner, arraySplitter*/}
         }
         const gameEnded = () => {
             if (!!gameInProcess) {

@@ -13,16 +13,37 @@ const boxSelected = function(e) {
 
 const getElementIndex = function(e) {
     const item = e.target;
-    var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(item);
-    arrayCell[index].innerText = gameBoardObject.retCurrentPlayer() //INSERT CURRENT PLAYER
+    var index = Array.prototype.slice.call(item.parentElement.children).indexOf(item);
     console.log(index);
 }
 
 const returnElementIndex = (e) => {
     const item = e.target;
-    var index = Array.prototype.slice.call(e.target.parentElement.children).indexOf(item);
+    var index = Array.prototype.slice.call(item.parentElement.children).indexOf(item);
     return index;
 }
+
+const executerFunction = (e) => {
+    const item = e.target;
+    var index = Array.prototype.slice.call(item.parentElement.children).indexOf(item);
+    console.log(gameBoardObject.gameStatus.gameInProgress().chooseBoardLocation(index));        
+}
+
+const functionToPrintCell = (e) => {
+    const item = e.target;
+    var index = Array.prototype.slice.call(item.parentElement.children).indexOf(item);
+    arrayCell[index].innerText = gameBoardObject.retCurrentPlayer()
+}
+
+const cleanVisualgameBoard = () => {
+    // const item = e.target;
+    // var index = Array.prototype.slice.call(item.parentElement.children).indexOf(item);
+    for (let oneCell of arrayCell) {
+        oneCell.innerText = "";               
+    }
+}
+
+const takeOffClass = () => {}
 
 const ticTacToker = (() => {
     for (let i = 1; i<= 9; i++) {
@@ -31,6 +52,8 @@ const ticTacToker = (() => {
         gridContainer.appendChild(gridItem);
         gridItem.addEventListener("click", getElementIndex);
         gridItem.addEventListener("click", boxSelected);
+        gridItem.addEventListener("click", functionToPrintCell);
+        gridItem.addEventListener("click", executerFunction);
     }
 })()
 
