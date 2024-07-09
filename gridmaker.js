@@ -43,7 +43,12 @@ const cleanVisualgameBoard = () => {
     }
 }
 
-const takeOffClass = () => {}
+const takeOffClass = () => {
+    for (let oneCell of arrayCell) {
+        oneCell.classList.remove("selected");
+        oneCell.classList.add("grid-item");        
+    }
+}
 
 const ticTacToker = (() => {
     for (let i = 1; i<= 9; i++) {
