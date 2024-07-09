@@ -1,7 +1,21 @@
+:root {
+    --main-font-color001: whitesmoke;
+    --main-font-color002: floralwhite;
+    --main-font-color003: honeydew;
+    --main-bg-color001: cadetblue;
+    --purple-toned: rebeccapurple;
+    --selected-class: rgb(172, 113, 181);
+    --false-reader: rgb(110, 84, 75);
+    --bluetoned-color: aqua;
+    --orange-red: orangered;
+  }
+
 body {
     width: 100vw;
     height: 100vh;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    background-color: var(--bluetoned-color);
+    font-weight: bolder;
     /* margin: auto; */
 }
 
@@ -9,6 +23,7 @@ header {
     margin: 3%;
     text-align: center;
     font-size: 2em;
+    color: var(--selected-class);
 }
 
 #gameboard {
@@ -16,29 +31,30 @@ header {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     width: 80%;
+    max-width: 700px;
     height: 60%;
     margin: 0 auto;
     /* padding: 20px; */
-    border: 1px solid #ccc;
-    background-color:blueviolet;
+    /* border: 1px solid #ccc; */
+    background-color:var(--purple-toned);
 }
 
 #gameboard > div  {
     align-content: center;
     text-align: center;
-    color: aquamarine;
+    color: var(--bluetoned-color);
 }
 
 .grid-item {
     background-color: #f0f0f0;
     padding: 20px;
     text-align: center;
-    background-color: darkred;
+    background-color: var(--bluetoned-color);
 }
 
 .selected {
-    background-color: rgb(172, 113, 181);
-    font-weight: bolder;
+    background-color: var(--selected-class);
+    /* font-weight: bolder; */
     font-size: xx-large;
     /* align-content: center;
     text-align: center; */
@@ -54,6 +70,9 @@ header {
 
 /* FORMAT FOR MIN AND MAX SIZES */
 @media (min-width: 1000px) {
+    header {
+        font-size: 4em;
+    }
     #gameboard {   
       width: 700px;
     }

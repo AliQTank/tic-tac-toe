@@ -1,0 +1,1 @@
+const VisualStatsGameboard = document.getElementById("gameboardStats");
