@@ -6,7 +6,7 @@
     --purple-toned: rebeccapurple;
     --selected-class: rgb(172, 113, 181);
     --false-reader: rgb(110, 84, 75);
-    --bluetoned-color: aqua;
+    --bluetoned-color: rgb(201, 157, 76);
     --orange-red: orangered;
   }
 
@@ -23,7 +23,7 @@ header {
     margin: 3%;
     text-align: center;
     font-size: 2em;
-    color: var(--selected-class);
+    color: var(--purple-toned);
 }
 
 #gameboard {
