@@ -8,6 +8,7 @@ const gameBoardObject = (() => {
     const gameStatus = (() => {        
         let winner = undefined, tie ="its a tie";
         const gameStarted = () => {
+            cleanAndRemove();
             if (!!gameInProcess) {
             } else if (!!currentPlayer) {
                 gameInProcess = true;

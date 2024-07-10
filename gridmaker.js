@@ -82,6 +82,14 @@ const takeOffClass = () => {
     }
 }
 
+const cleanAndRemove = () =>{
+    for (let oneCell of arrayCell) {
+        oneCell.innerText = "";
+        oneCell.classList.remove("selected");
+        oneCell.classList.add("grid-item");        
+    }
+}
+
 const ticTacToker = (() => {
     for (let i = 1; i<= 9; i++) {
         const gridItem =  document.createElement("div");

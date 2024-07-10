@@ -4,6 +4,3 @@ const printSelection = document.createElement("p");
 const addSpan = printSelection.innerHTML = "<span></span>";
 const hiCell = addSpan.innerText = "hi";
 
-const functionToCleanGameboard = () => {
-    
-}
