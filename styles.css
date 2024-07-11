@@ -52,7 +52,6 @@ header {
 }
 
 .grid-item {
-    background-color: #f0f0f0;
     padding: 20px;
     text-align: center;
     background-color: var(--bluetoned-color);
@@ -60,24 +59,21 @@ header {
 
 .selected {
     background-color: var(--selected-class);
-    /* font-weight: bolder; */
     font-size: xx-large;
-    /* align-content: center;
-    text-align: center; */
 }
 
 #gameboardStats {
     height: 20vh;
     background-color: var(--purple-toned);
     margin-bottom: 0;    
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 100%;    
 }
 
-#player-1 {
-    background-color: cadetblue;
-}
+#gameboardStats * {
+    color: var(--bluetoned-color);
 
-#player-2 {
-    background-color: coral;
 }
 
 /* FORMAT FOR MIN AND MAX SIZES */
