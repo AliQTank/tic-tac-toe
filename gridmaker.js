@@ -90,6 +90,8 @@ const cleanAndRemove = () =>{
     }
 }
 
+const addStarter = () => {console.log(gameBoardObject.gameStatus.gameStarted())}
+
 const ticTacToker = (() => {
     for (let i = 1; i<= 9; i++) {
         const gridItem =  document.createElement("div");
