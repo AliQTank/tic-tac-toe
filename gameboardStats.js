@@ -1,9 +1,15 @@
 const VisualStatsGameboard = document.getElementById("gameboardStats");
 const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
+const board = document.getElementById("board");
 const para1 = document.createElement("p");
 const para2 = document.createElement("p");
-para1.innerText ="first step";
-para2.innerText = "second step";
+const buttonToStartNewRound = document.createElement("button");
+buttonToStartNewRound.innerText = "start here";
+buttonToStartNewRound.addEventListener("click", cleanAndRemove);
+buttonToStartNewRound.addEventListener("click", addStarter);
+para1.innerText = gameBoardObject.player1Name();
+para2.innerText = gameBoardObject.player2Name();
 player1.appendChild(para1);
 player2.appendChild(para2);
+board.appendChild(buttonToStartNewRound);
