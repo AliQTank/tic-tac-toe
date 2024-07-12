@@ -8,7 +8,7 @@ const gameBoardObject = (() => {
     const gameStatus = (() => {        
         let winner = undefined, tie ="its a tie";
         const gameStarted = () => {
-            cleanAndRemove();
+            // cleanAndRemove();//  gonna try to put it by separate
             if (!!gameInProcess) {
             } else if (!!currentPlayer) {
                 gameInProcess = true;
@@ -118,8 +118,13 @@ const gameBoardObject = (() => {
     })()
 
     const gameBoardStats = () => {
-        return `${gameScoreBoard[0].playerlegend} : ${gameScoreBoard[0].score}  ${gameScoreBoard[1].playerlegend} : ${gameScoreBoard[1].score} `;
+        return `${gameScoreBoard[0].playerlegend} : ${gameScoreBoard[0].score}  ${gameScoreBoard[1].playerlegend} : ${gameScoreBoard[1].score} `;        
     }
+
+    const player1Name = () => {return `${gameScoreBoard[0].id}`};
+    const player1Score = () => {return `${gameScoreBoard[0].score}`}
+    const player2Name = () => {return `${gameScoreBoard[1].id}`};
+    const player2Score = () => {return `${gameScoreBoard[0].score}`}
     
     const createPlayer = function({playerlegend, id, score = 0}) {        
         playerlegend, id, score,
@@ -132,13 +137,13 @@ const gameBoardObject = (() => {
 
     const retCurrentPlayer = () => currentPlayer;
 
-    return {gameStatus, gameBoardStats, createPlayer, gamesCounter, returnGameBoard, retCurrentPlayer}
+    return {gameStatus, gameBoardStats, player1Name, player1Score, player2Name, player2Score, createPlayer, gamesCounter, returnGameBoard, retCurrentPlayer}
 })()
 
 
 const initialitation = (() => {
-    const playerone = {playerlegend: "O", id: "JD1", playerName: "Noah"};
-    const playertwo = {playerlegend: "X", id: "Jane", playerName: "Satan"};
+    const playerone = {playerlegend: "O", id: "RADAN", playerName: "Noah"};
+    const playertwo = {playerlegend: "X", id: "ROHAN", playerName: "Satan"};
     console.log(gameBoardObject.createPlayer(playerone));
     console.log(gameBoardObject.createPlayer(playertwo));    
 })();
