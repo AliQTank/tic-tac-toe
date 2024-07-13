@@ -6,7 +6,7 @@ const gameBoardObject = (() => {
     let currentPlayer; // VARIABLE TO TOGGLE PLAYERS TURN
     
     const gameStatus = (() => {        
-        let winner = undefined, tie ="its a tie";
+        let winner, tie ="its a tie";
         const gameStarted = () => {
             // cleanAndRemove();//  gonna try to put it by separate
             if (!!gameInProcess) {
@@ -23,7 +23,7 @@ const gameBoardObject = (() => {
         }
         const gameInProgress = () => {  
             const togglePlayer = () => { // FUNCTION TO TOGGLE PLAYERS TURN
-                currentPlayer === gameScoreBoard[0].playerlegend ? currentPlayer = gameScoreBoard[1].playerlegend : currentPlayer = gameScoreBoard[0].playerlegend            
+                currentPlayer === gameScoreBoard[0].playerlegend ? currentPlayer = gameScoreBoard[1].playerlegend : currentPlayer = gameScoreBoard[0].playerlegend;
             }
             const chooseBoardLocation = (indexOfGameboard) => {
                 if (!!gameInProcess && !gameBoard[indexOfGameboard] && !winner) {
@@ -51,6 +51,7 @@ const gameBoardObject = (() => {
                         cross1.every(checkPlayer1) || cross2.every(checkPlayer1)) {
                             winner = gameScoreBoard[0].playerlegend;
                             console.log(winner);
+                            console.log(gameBoardObject.gameStatus.gameEnded());
                             return winner;
                     } else if (firstRow.every(checkPlayer2) || secondRow.every(checkPlayer2) ||
                                 thirdRow.every(checkPlayer2) || firstColumn.every(checkPlayer2) ||
@@ -58,10 +59,12 @@ const gameBoardObject = (() => {
                                 cross1.every(checkPlayer2) || cross2.every(checkPlayer2)) {
                                     winner = gameScoreBoard[1].playerlegend;
                                     console.log(winner);
+                                    console.log(gameBoardObject.gameStatus.gameEnded());
                                     return winner;
                     } else if (gameBoard.every(noMoreCellsAvailable)) {
                         winner = tie;
                         console.log(winner);
+                        console.log(gameBoardObject.gameStatus.gameEnded());
                         return winner}                  
                 }) ()      
                 return {checkAndCheckers}
@@ -71,6 +74,7 @@ const gameBoardObject = (() => {
             return {chooseBoardLocation, /*doWeGotAWinner, arraySplitter*/}
         }
         const gameEnded = () => {
+            buttonToStartNewRound.classList.remove("hidden");
             if (!!gameInProcess) {
                 let thisWinner = winner;
                 winner = undefined
@@ -82,11 +86,13 @@ const gameBoardObject = (() => {
                     case (gameScoreBoard[0].playerlegend):
                         gameScoreBoard[0].score++;                        
                         // return `${gameScoreBoard[0].playerlegend}`
+                        scorep1.innerText = player1Score();
                         return `${gameScoreBoard[0].playerlegend}: ${gameScoreBoard[0].score} ${gameScoreBoard[1].playerlegend}: ${gameScoreBoard[1].score} `
                         break;
                     case (gameScoreBoard[1].playerlegend):
                         gameScoreBoard[1].score++;                        
                         // return `${gameScoreBoard[1].playerlegend}`
+                        scorep2.innerText = player2Score();
                         return `${gameScoreBoard[0].playerlegend}: ${gameScoreBoard[0].score} ${gameScoreBoard[1].playerlegend}: ${gameScoreBoard[1].score}`
                         break;
                     case (tie):                        
@@ -124,7 +130,7 @@ const gameBoardObject = (() => {
     const player1Name = () => {return `${gameScoreBoard[0].id}`};
     const player1Score = () => {return `${gameScoreBoard[0].score}`}
     const player2Name = () => {return `${gameScoreBoard[1].id}`};
-    const player2Score = () => {return `${gameScoreBoard[0].score}`}
+    const player2Score = () => {return `${gameScoreBoard[1].score}`}
     
     const createPlayer = function({playerlegend, id, score = 0}) {        
         playerlegend, id, score,
@@ -142,8 +148,8 @@ const gameBoardObject = (() => {
 
 
 const initialitation = (() => {
-    const playerone = {playerlegend: "O", id: "RADAN", playerName: "Noah"};
-    const playertwo = {playerlegend: "X", id: "ROHAN", playerName: "Satan"};
+    const playerone = {playerlegend: "O", id: "Player 1", playerName: "Noah"};
+    const playertwo = {playerlegend: "X", id: "Player 2", playerName: "Satan"};
     console.log(gameBoardObject.createPlayer(playerone));
     console.log(gameBoardObject.createPlayer(playertwo));    
 })();
