@@ -90,7 +90,10 @@ const cleanAndRemove = () =>{
     }
 }
 
-const addStarter = () => {console.log(gameBoardObject.gameStatus.gameStarted())}
+const addStarter = () => {
+    console.log(gameBoardObject.gameStatus.gameStarted())
+    buttonToStartNewRound.classList.add("hidden");
+}
 
 const ticTacToker = (() => {
     for (let i = 1; i<= 9; i++) {
