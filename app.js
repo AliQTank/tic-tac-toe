@@ -12,11 +12,13 @@ const gameBoardObject = (() => {
             if (!!gameInProcess) {
             } else if (!!currentPlayer) {
                 gameInProcess = true;
+                whoIsCurrent();
                 return currentPlayer;
             } else {
                 gameInProcess = true;
                 let virtualGame = Math.random();
                 currentPlayer = virtualGame > .5 ? currentPlayer = gameScoreBoard[0].playerlegend : currentPlayer = gameScoreBoard[1].playerlegend; 
+                whoIsCurrent();
                 return currentPlayer;
                 // winner = currentPlayer;
                 }            
@@ -30,6 +32,7 @@ const gameBoardObject = (() => {
                     gameBoard[indexOfGameboard] = currentPlayer;
                     togglePlayer();
                     doWeGotAWinner();
+                    whoIsCurrent();
                     return gameBoard                
                 }   
             };
@@ -63,7 +66,7 @@ const gameBoardObject = (() => {
                                     return winner;
                     } else if (gameBoard.every(noMoreCellsAvailable)) {
                         winner = tie;
-                        console.log(winner);
+                        // console.log(winner);
                         console.log(gameBoardObject.gameStatus.gameEnded());
                         return winner}                  
                 }) ()      
@@ -81,6 +84,7 @@ const gameBoardObject = (() => {
                 gameBoard = Array(9).fill(undefined);
                 gameInProcess = false;
                 count++;
+                howManyGamesPlayed.innerText = `games played so far: ${gameBoardObject.gamesCounter()}`;
                 //CASE PLAYER 1, PLAYER TWO, TIE, ADD TO SCORE
                 switch (thisWinner){
                     case (gameScoreBoard[0].playerlegend):
@@ -148,8 +152,8 @@ const gameBoardObject = (() => {
 
 
 const initialitation = (() => {
-    const playerone = {playerlegend: "O", id: "Player 1", playerName: "Noah"};
-    const playertwo = {playerlegend: "X", id: "Player 2", playerName: "Satan"};
+    const playerone = {playerlegend: "O", id: "player 1", playerName: "Noah"}; // prompt("select player 1 name")
+    const playertwo = {playerlegend: "X", id: "player 2", playerName: "Satan"}; // prompt("select player 2 name")
     console.log(gameBoardObject.createPlayer(playerone));
     console.log(gameBoardObject.createPlayer(playertwo));    
 })();
