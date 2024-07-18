@@ -147,7 +147,15 @@ const gameBoardObject = (() => {
 
     const retCurrentPlayer = () => currentPlayer;
 
-    return {gameStatus, gameBoardStats, player1Name, player1Score, player2Name, player2Score, createPlayer, gamesCounter, returnGameBoard, retCurrentPlayer}
+    const currrentName = () => {
+        if (gameScoreBoard[0].playerlegend === currentPlayer) {
+            return `${gameScoreBoard[0].id}'s turn to choose`
+        } else if (gameScoreBoard[1].playerlegend === currentPlayer) {
+            return `${gameScoreBoard[1].id}'s turn to choose`
+        } else {}
+    }
+
+    return {gameStatus, gameBoardStats, player1Name, player1Score, player2Name, player2Score, createPlayer, gamesCounter, returnGameBoard, retCurrentPlayer, currrentName}
 })()
 
 
