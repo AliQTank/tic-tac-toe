@@ -9,7 +9,7 @@
     --selected-classV2: inherited;
     --false-reader: rgb(110, 84, 75);
     --background-colorV3: rgb(201, 157, 76);
-    --background-color: #ffc0cb;
+    --background-color: #e91e63;
     --orange-red: orangered;
   }
 
@@ -70,8 +70,8 @@ header {
     background-color: var(--match-001);
     margin-bottom: 0;
     padding-top: 2vh; 
-    padding-left: 2vh;
-    padding-right: 2vh;   
+    padding-left: 2vw;
+    /* padding-right: 2vh;    */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     width: 100%;    
@@ -83,7 +83,8 @@ header {
 }
 
 #gameboardStats > #board {
-    padding-right: 6vw;
+    padding-right: 6vw;    
+    text-align: center;
 }
 
 #gameboardStats button {
@@ -94,6 +95,11 @@ header {
     color: var(--match-001);
     cursor: pointer;
     font-weight: 700;
+    margin-bottom: 2vh;
+}
+
+#gameboardStats  p {
+    margin-bottom: 2vh;
 }
 
 #gameboardStats:nth-child(2) {
@@ -104,9 +110,7 @@ header {
     visibility: hidden;
 }
 
-.active-player {
-    /*  */
-}
+
 /* FORMAT FOR MIN AND MAX SIZES */
 @media (min-width: 1000px) {
     header {
@@ -120,10 +124,25 @@ header {
   }
 
   @media only screen and (max-width: 500px) {
-    div#gameboardStats {
-        
+        div#gameboardStats {
+            
             display: flex;
             flex-wrap: nowrap;
             flex-direction: column;
+            align-items: center;
         }
+
+        /* #gameboardStats > * {
+            display: flex;  
+            align-items: baseline;          
+        } */
+
+        #board {
+            order: 3;
+            display: flex;
+            flex-direction: column-reverse;
+        }  
+        #gameboardStats button {
+            padding-bottom: 30px;
+        }  
     }
