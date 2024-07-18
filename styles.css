@@ -3,10 +3,13 @@
     --main-font-color002: floralwhite;
     --main-font-color003: honeydew;
     --main-bg-color001: cadetblue;
-    --purple-toned: rebeccapurple;
+    --match-003: rebeccapurple;
+    --match-001: #000000;    
     --selected-class: rgb(172, 113, 181);
+    --selected-classV2: inherited;
     --false-reader: rgb(110, 84, 75);
-    --background-color: rgb(201, 157, 76);
+    --background-colorV3: rgb(201, 157, 76);
+    --background-color: #ffc0cb;
     --orange-red: orangered;
   }
 
@@ -29,7 +32,7 @@ header {
     text-align: center;
     align-content: center;
     font-size: 2em;
-    color: var(--purple-toned);
+    color: var(--match-001);
 }
 
 #gameboard {
@@ -42,13 +45,13 @@ header {
     margin: 10vh auto;
     /* padding: 20px; */
     /* border: 1px solid #ccc; */
-    background-color:var(--purple-toned);
+    background-color:var(--match-001);
 }
 
 #gameboard > div  {
     align-content: center;
     text-align: center;
-    color: var(--background-color);
+    color: var(--match-001);
 }
 
 .grid-item {
@@ -58,13 +61,13 @@ header {
 }
 
 .selected {
-    background-color: var(--selected-class);
+    background-color: var(--background-color);
     font-size: 2.3rem;
 }
 
 #gameboardStats {
     height: 20vh;
-    background-color: var(--purple-toned);
+    background-color: var(--match-001);
     margin-bottom: 0;
     padding-top: 2vh; 
     padding-left: 2vh;
@@ -88,7 +91,7 @@ header {
     height:20%;
     background-color: var(--background-color);
     border: 0;
-    color: var(--purple-toned);
+    color: var(--match-001);
     cursor: pointer;
     font-weight: 700;
 }
