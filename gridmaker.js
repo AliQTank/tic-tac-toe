@@ -95,7 +95,7 @@ const addStarter = () => {
     buttonToStartNewRound.classList.add("hidden");
 }
 
-const whoIsCurrent = () => {currentPlayerIndicator.innerText = gameBoardObject.retCurrentPlayer()}
+const whoIsCurrent = () => {currentPlayerIndicator.innerText = gameBoardObject.currrentName()}
 
 const ticTacToker = (() => {
     for (let i = 1; i<= 9; i++) {
