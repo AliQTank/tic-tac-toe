@@ -132,10 +132,9 @@ header {
             align-items: center;
         }
 
-        /* #gameboardStats > * {
-            display: flex;  
-            align-items: baseline;          
-        } */
+        #gameboardStats > * {
+            display: flex;            
+        }
 
         #board {
             order: 3;
